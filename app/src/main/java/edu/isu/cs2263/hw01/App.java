@@ -5,7 +5,18 @@ package edu.isu.cs2263.hw01;
 
 import org.apache.commons.cli.*;
 
+/**
+ * A Java application that evaluates mathematical expressions. Expressions can be input by the user or read from a
+ * text and users have the option to output the results to a text file.
+ *
+ * @author Zackary Beck
+ */
 public class App {
+    /***
+     * A simple method to add three CLI options to a list of options
+     *
+     * @return The list of options
+     */
     public Options addOptions(){
         Options options = new Options();
 
@@ -19,8 +30,8 @@ public class App {
         App app = new App();
         Options options = app.addOptions();
 
-        String formatterHeader = "Evaluation of simple mathematical expressions\n\n";
-        String formatterFooter = "\nCopyright (C) 2022 Zackary C. Beck";
+        String header = "Evaluation of simple mathematical expressions\n\n";
+        String footer = "\nCopyright (C) 2022 Zackary C. Beck";
 
         CommandLineParser parser = new DefaultParser();
         try {
@@ -28,12 +39,16 @@ public class App {
 
             if (cmd.hasOption("h")) {
                 HelpFormatter formatter = new HelpFormatter();
-                formatter.printHelp("eval", formatterHeader, options, formatterFooter, true);
+                formatter.printHelp("eval", header, options, footer, true);
+            } else if (cmd.hasOption("b")) {
+                //System.out.println("Batch value: " + args[1]);
+                new InputFromFile(args[1]);
             } else if (cmd.hasOption("o")) {
                 System.out.println("Output value: " + args[1]);
-            } else if (cmd.hasOption("b")) {
-                System.out.println("Batch value: " + args[1]);
+            } else if (cmd.getArgs().length == 0) {
+                new InputFromCommandLine();
             }
+
         } catch (ParseException e){
             e.printStackTrace();
         }
