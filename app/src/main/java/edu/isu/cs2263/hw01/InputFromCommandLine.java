@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Zackary Beck
  */
-public class InputFromCommandLine {
+public class InputFromCommandLine implements InputInterface {
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -15,13 +15,13 @@ public class InputFromCommandLine {
      * A constructor that calls the run method when an object is instantiated
      */
     public InputFromCommandLine() {
-        run();
+        read();
     }
 
     /**
      * Uses an infinite loop to get expressions from the user. Sends expressions to the evaluate class to be evaluated
      */
-    public void run() {
+    public void read() {
         String expression;
         boolean run = true;
 
