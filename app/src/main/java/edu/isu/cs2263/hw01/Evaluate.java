@@ -4,8 +4,13 @@ import java.util.ArrayDeque;
 
 /**
  * A Java class that takes mathematical expressions and evaluates them from left to right
+ *
+ * @author Zackary Beck
  */
 public class Evaluate {
+
+    private int finalResult;
+
     /**
      * Takes the user's expression and sends it to be transformed into an array of characters
      *
@@ -14,6 +19,16 @@ public class Evaluate {
     public Evaluate(String expression) {
         expressionToArrays(expression);
     }
+
+    /**
+     * Returns the final result of the expression
+     *
+     * @return The result of the evaluated expression
+     */
+    public int getFinalResult() {
+        return finalResult;
+    }
+
     /**
      * Breaks the expression into an array and puts the values and operators in their respective array deques
      * Passes the array deques to be evaluated in the EvaluateExpression class
@@ -40,9 +55,7 @@ public class Evaluate {
                 operators.add(chars[i]);
             }
         }
-        int finalResult = evaluateExpression(values, operators);
-        System.out.println("\t-> " + finalResult);
-        // new OutputResult().printString(String.valueOf(finalResult));
+        finalResult = evaluateExpression(values, operators);
     }
 
     /**

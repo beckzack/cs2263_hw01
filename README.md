@@ -1,4 +1,4 @@
-# CS 2263 Homework 01 Version 1.1.0
+# CS 2263 Homework 01 Version 1.2.0
 A Java application to evaluate simple mathematical expressions disregarding proper order of operations.
 
 ## Table of Contents

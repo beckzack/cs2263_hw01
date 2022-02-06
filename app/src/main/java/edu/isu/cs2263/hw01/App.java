@@ -44,7 +44,8 @@ public class App {
                 //System.out.println("Batch value: " + args[1]);
                 new InputFromFile(args[1]);
             } else if (cmd.hasOption("o")) {
-                System.out.println("Output value: " + args[1]);
+                // System.out.println("Output value: " + args[1]);
+                new InputFromCommandLine(args[1]);
             } else if (cmd.getArgs().length == 0) {
                 new InputFromCommandLine();
             }
